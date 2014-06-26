@@ -29,16 +29,46 @@ Vous pouvez vous battre en appuyant sur la touche A.
 L'objectif du jeu est de survivre suffisement longtemps pour quitter le labyrinthe.
 Vous pouvez quitter le jeu grâce à la touche Esc ou Echap.
 
+=========
+CHANGELOG
+=========
 
-===================
-Nouvelles fonctions
-===================
-La version actuelle est le second prototype elle est assez proche de la version finale mais la difficulté du jeu est très élevée.
-
-Les fonctions à tester sont l'utilistation des objet (ramassage, jet et utilistation)
-Le système de combat (NB : La licorne Rose Invisible le Troll et Lord Helix sont tr difficile à battre sans équippement)
-La possibilité de fuir
-
+ VERSION 1.1 : What? The-Shades is evolving!
+    
+    ============
+    NEW FEATURES
+    ============
+    
+    - Difficulty settings : decide what size a grid you want to play in!
+    
+    - EXP & Levels : You now win EXP Points when you win a fight! You win an extra 3 max health points, 1 skill point and a health refill!
+                     The monsters you encounter are stronger when your level is higher (You won't get stuck against a troll at level 1)
+                     The stronger the monster, the more EXP you win! (Duh!)
+    
+    - Exploration counter : When you move from an area to another, remember to check the "visited" counter in the hud, you never know if you
+                            already been here...
+    
+    ========
+    NEW ITEM
+    ========
+    
+    - The Superbonbon (french for pokemon's "Rare Candy" : Leveling up made easy!
+    
+    ===================
+    OTHER EDITS & FIXES
+    ===================
+    
+    - Item selection fix : Typing an unassigned number doesn't make the game crash anymore.
+    
+    - Max health : You can't have more HP than your initial throw until you level up.
+    
+    ==========
+    KNOWN BUGS
+    ==========
+    
+    - Arrow keys : Just leave them alone.
+    
+    - Difficulty choice : Don't type any text in, it isn't safe yet.
 
 
 ======
@@ -47,9 +77,9 @@ Divers
 
 Pour des informations sur le projet vous pouvez nous contacter à:
 
-p3mahieu [at] enib [point] fr
-v3pearce [at] enib [point] fr
+forgetfulmuffin [at] gmail [dot] com
+
 
 Pour suivre en détail l'evolution du projet, vous pouvez vous rendre sur :
 
-http://github.com/ValentinPearce/The-Shades
+http://github.com/ForgetfulMuffin/The-Shades
