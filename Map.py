@@ -22,13 +22,13 @@ def generate(size): # Fonction principale du module
     while visited < size*size :
         createMaze(size)
     addExits(size)
-    setMonstersItems(size)
+    setItems(size)
 
 def createEmpty(size): # Cree une carte vide caree de size*size cases.
     for i in range (size):
         map.append([])
         for j in range (size):
-            map[i].append({'items':[],'north':0,'south':0,'east':0,'west':0, "monster" : [] })
+            map[i].append({'items':[],'north':0,'south':0,'east':0,'west':0, "monster" : [], 'visited' : 0})
 
     
 def createMaze(size): # Cree un labyrinthe parfait (bas de boucles, pas de zones innaccessibles)
@@ -100,7 +100,7 @@ def createMaze(size): # Cree un labyrinthe parfait (bas de boucles, pas de zones
          path.pop(len(path)-1)
          i = path[len(path) - 1][0]
          j = path[len(path) - 1][1]
-
+    map[0][0]['visited'] = 1
 def printMap(): # Affiche un visuel de la carte. Destine aux developpeurs. (^ signifie un mur au nord, _ au sud, = les deux et | a l'est ou a l'ouest en fonction du cote.)
     line=['','','','','','']
     for i in range (size): 
@@ -132,17 +132,22 @@ def addExits(size): # Ajoute des sorties (condition de victoire) au labyrinthe a
         else:
             map[random.randint(0,size - 1)][size - 1]['east'] = 2
 
-def setMonstersItems(size): # defini aleatoirement la presence de monstres et d'objets dans chaque zone
-    Monsters.checkList()
+def setItems(size): # defini aleatoirement la presence d'objets dans chaque zone
     Items.checkList()
     for i in range (size):
         for j in range (size):
             if (i,j) != (0,0) :
                 site = random.randint(0,4)
                 if site >= 3:
-                    map[i][j]["monster"] = dict(Monsters.addRandom())
-                elif site > 0:
                     map[i][j]["items"].append(Items.addRandom())
+
+def setMonster(position, level):
+	site = random.randint(0,4)
+	if site >=3:
+		map[position[0]][position[1]]["monster"] = dict(Monsters.addRandom(level))
+
+def setVisited(position):
+	map[position[0]][position[1]]["visited"] = 1
 
 #========================================
 # ACCESSEURS
@@ -218,6 +223,7 @@ def getAltDescript(position): # Ajoute quelques informations a la description de
         else:
             descript += ", "
     return descript
+
 def isItem(position): # Renvoie le nombre d'objets dans la zone.
     return len(map[position[0]][position[1]]["items"])
 
@@ -225,18 +231,7 @@ def getItemList(position): # Renvoie la liste d'objets dans la zone et leur donn
     descript = ""
     for i in range(len(map[position[0]][position[1]]["items"])) :
         descript += "("
-        if i == 0:
-            descript += "W) "
-        elif i == 1:
-            descript += "X) "
-        elif i == 2:
-            descript += "C) "
-        elif i == 3:
-            descript += "V) "
-        elif i == 4:
-            descript += "B) "
-        elif i == 5:
-            descript += "N) "
+        descript += str(i+1) + ") "
         descript += map[position[0]][position[1]]["items"][i]["liste"]
     return descript
 
@@ -252,8 +247,14 @@ def isMonster(position): # Renvoie le nombre de monstre de la zone
 def getMonsterHealth(position): # Renvoie la vie du monstre de la zone
     return map[position[0]][position[1]]["monster"]["health"]
 
+def getMonsterXp(position): # Renvoie l'experienceque donne le monstre de la zone
+    return map[position[0]][position[1]]["monster"]["xp"]
+
 def getMonsterPower(position): # Renvoie la force du monstre de la zone
     return map[position[0]][position[1]]["monster"]["power"]
+
+def getVisited(position): # Renvoie si la zone a deja ete visitee
+    return map[position[0]][position[1]]["visited"]
 
 #==================================
 # MODIFICATEURS

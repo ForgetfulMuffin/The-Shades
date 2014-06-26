@@ -17,7 +17,8 @@ items = (
 	{"name" : "une Catapulte" , "rate" : 3 , "type" : 1 , "Modifier" : 5 , "liste" : "une Catapulte-------+5 "},
 	{"name" : "une Claymore" , "rate" : 5 , "type" : 1 , "Modifier" : 3 , "liste" : "une Claymore--------+3 "},
 	{"name" : "un Katana" , "rate" : 6 , "type" : 1 , "Modifier" : 2 , "liste" : "un Katana-----------+2 "},
-	{"name" : "un Tromblon" , "rate" : 6 , "type" : 1 , "Modifier" : 2 , "liste" : "un Tromblon---------+2 "})
+	{"name" : "un Superbonbon" , "rate" : 6 , "type" : 2 , "Modifier" : 1 , "liste" : "un Superbonbon------+1 "},
+	{"name" : "un Tromblon" , "rate" : 6 , "type" : 1 , "Modifier" : 2 , "liste" : "un Tromblon---------+2 "} )
 
 def checkList(): # Verifie que tous les elements de la liste sont bien parametres
     for i in range (len(items)):

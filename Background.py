@@ -3,7 +3,7 @@
 import sys
 import os
 
-def create (file1,file2,file3,file4): # Defini les fonds d'ecran. file1 : background; file2 : victoire; file3 : defaite; file 4 : menu dans la version actuelle)
+def create (file1,file2,file3,file4,file5): # Defini les fonds d'ecran. file1 : background; file2 : victoire; file3 : defaite; file 4 : menu dans la version actuelle)
 	bg=dict()
 	myfile = open(file1, "r")
 	bg["bg"]=myfile.read()
@@ -19,6 +19,10 @@ def create (file1,file2,file3,file4): # Defini les fonds d'ecran. file1 : backgr
 
 	myfile = open(file4, "r")
         bg["menu"] = myfile.read()
+        myfile.close()
+
+	myfile = open(file5, "r")
+        bg["menu2"] = myfile.read()
         myfile.close()
 
         return bg

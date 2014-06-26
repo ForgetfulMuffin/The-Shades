@@ -1,27 +1,28 @@
                                                    
      __________\                  \\_________      
-   (\         \____________________\    _d|_O_         //=======================\\
-    )                                   O_O)_))        ||                       ||
-   \d\                                  (_|)o(O        ||  Liste des comandes:  ||
-    |)_                                 \|ddO^         ||                       ||
-    o\\                                  _)            ||    [Z]         Se     ||
-    )_                                    )\           || [Q] + [D]   déplacer  ||
-    (_                                   _(O           ||    [S]                ||
-    ^_                                     __          ||                       ||
-    \_                                      _          ||    [O]      Observer  ||
-     O                                      ^_         ||              la zone  ||
-     \o\                                    \(         ||   [ESC]      Quitter  ||
-      O                                     \)_        ||    [E]      Utiliser  ||
-      __                                     \O        ||    [J]       Jeter    ||
-       (_                                     (        ||    [R]      Ramasser  ||
-        |                                     O        \\    [A]      Attaquer  //
-        _^                                    __       //                       \\
-     ^^__(                                    (_       ||                       ||
-   \(__O\O^                                  _o\       ||  Informations :       ||
-   (_do(OO_                                   (\       ||                       ||
-   doOO( o\                                   (        || - Joueur :            ||
-   O(Odoo_    \__^_^^^__^___^_____^^^^^^^^^^__\        || - Vie :    Force :    ||
-    O)dd__^^__^__\                                     || - Temps écoulé :      ||
-                                                       || - Temps limite :      ||
-                                                       ||                       ||
-                                                       \\=======================//
+   (\         \____________________\    _d|_O_         //============================================\\
+    )                                   O_O)_))        ||                                            ||
+   \d\                                  (_|)o(O        ||  Liste des comandes:                       ||
+    |)_                                 \|ddO^         ||                                            ||
+    o\\                                  _)            ||               [Z]         Se               ||
+    )_                                    )\           ||            [Q] + [D]   déplacer            ||
+    (_                                   _(O           ||               [S]                          ||
+    ^_                                     __          ||                                            ||
+    \_                                      _          ||               [O]      Observer            ||
+     O                                      ^_         ||                         la zone            ||
+     \o\                                    \(         ||              [ESC]      Quitter            ||
+      O                                     \)_        ||               [E]      Utiliser            ||
+      __                                     \O        ||               [J]       Jeter              ||
+       (_                                     (        ||               [R]      Ramasser            ||
+        |                                     O        \\               [A]      Attaquer            //
+        _^                                    __       //                                            \\
+     ^^__(                                    (_       ||                                            ||
+   \(__O\O^                                  _o\       ||  Informations :                            ||
+   (_do(OO_                                   (\       ||                                            ||
+   doOO( o\                                   (        || - Nom :                     - Niveau :     ||
+   O(Odoo_    \__^_^^^__^___^_____^^^^^^^^^^__\        || - Vie Max :     - Vie :     - Force :      ||
+    O)dd__^^__^__\                                     || - Temps écoulé :            - Zones :      ||
+                                                       || - Temps limite :            - Vues :       ||
+                                                       || - Experience :                             ||
+                                                       || - Seuil suivant :                          ||
+                                                       \\============================================//

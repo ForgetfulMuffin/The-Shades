@@ -4,20 +4,24 @@ import random
 #===========================================================
 #INITIALISATION
 #===========================================================
-player={'name' :'Bob','position' :(0,0),'health' :0,'power' : 0 , 'time' :0,'inventory' :[],'equip' :[]}
+player={ 'name' : 'Bob','position' : (0,0) ,'maxHealth' : 0 , 'health' : 0 , 'power' : 0 , 'time' : 0, 'xp' : 0 , 'level' : 1 , 'inventory' : [] , 'equip' : [] }
 
 def setName(): # Defini le nom du joueur
-	player['name']=raw_input()
+	player['name'] = raw_input()
 
-def setHealth(): # Defini la vie du joueur
-	player['health']=12+random.randint(1,6)+random.randint(1,6)
+def setMaxHealth(): # Defini la vie max du joueur
+	player['maxHealth'] = 12 + random.randint(1,6) + random.randint(1,6)
+	player['health'] = player['maxHealth']
 
 def setPower():
-	player['power']= random.randint(1,6) + random.randint(1,6)
+	player['power'] = random.randint(1,6) + random.randint(1,6)
 
 #===========================================================
 #ACCESSEURS
 #===========================================================
+
+def getMaxHealth(): # Renvoie la vie max du joueur
+	return player['maxHealth']
 
 def getHealth(): # Renvoie la vie du joueur
 	return player['health']
@@ -53,43 +57,57 @@ def getItemName(index): # Renvoie le nom de l'objet no index de l'inventaire
 	return player["inventory"][index]["name"]
 
 def getItemList(): # Renvoie la liste des objets de l'inventaire avec un index (wxcvbn) 
-    descript = ""
-    for i in range(len(player["inventory"])) :
-        descript += "("
-        if i == 0:
-            descript += "W) " 
-        elif i == 1:
-            descript += "X) "
-        elif i == 2:
-            descript += "C) "
-        elif i == 3:
-            descript += "V) "
-        elif i == 4:  
-            descript += "B) "
-        elif i == 5:
-            descript += "N) "
-        descript += player["inventory"][i]["liste"]
-    return descript
+	descript = ""
+	for i in range(len(player["inventory"])) :
+		descript += "("
+		descript += str(i+1) + ") "
+		descript += player["inventory"][i]["liste"]
+	return descript
+
+def getXp(): # Renvoie la quantite d'xp du joueur
+	return player['xp']
+
+def getLevel(): # Renvoie la quantite d'xp du joueur
+	return player['level']
 
 #=============================================
 #MODIFICATEURS
 #=============================================
 
+def editMaxHealth(modifier):
+	player['maxHealth'] += modifier
+
+
 def editHealth(modifier): # Modifie la vie du joueur d'une valeur egale a "modifier"
-	player['health']=player['health']+modifier
+	player['health'] += modifier
+
+def setHealth(value): # Defini la vie du joueur
+	player['health'] = value
+
+def editPower(modifier):
+	player['power'] += modifier
+
+def editXp(modifier): # Modifie l'experience du joueur d'une valeur egale a "modifier"
+	player['xp'] += modifier
+
+def setXp(modifier): # Definit une valeur fixe pour l'xp du joueur
+	player['xp'] = modifier
+
+def editLevel(modifier): # Modifie le niveau du joueur d'une valeur egale a "modifier"
+	player['level'] += modifier
 
 def move(direction): # Modifie la position du joueur dans la direction souhaitee
 	if direction=="north":
-		player['position']=(player['position'][0]-1, player['position'][1])
+		player['position'] = (player['position'][0] - 1 , player['position'][1] )
 	elif direction=="south":
-		player['position']=(player['position'][0]+1, player['position'][1])
+		player['position'] = (player['position'][0] + 1 , player['position'][1] )
 	elif direction=="east":
-		player["position"]=(player['position'][0], player['position'][1]+1)
+		player["position"] = (player['position'][0] , player['position'][1] + 1 )
 	elif direction=="west":
-		player['position']=(player['position'][0], player['position'][1]-1)
+		player['position'] = (player['position'][0], player['position'][1]-1)
 
 def editTime(modifier): # Modifie le temps passe par le joueur de modifier
-	player['time']=player['time']+modifier
+	player['time'] = player['time'] + modifier
 
 def addItem(item): # Ajoute un objet a l'inventaire
 	player['inventory'].append(item)
@@ -98,8 +116,8 @@ def removeItem(index): # Retire un objet de l'inventaire
 	player['inventory'].pop(index)
 
 def equip(item): # Equipe un objet
-        if len(player['equip']) == 1:
+        if len(player['equip']) == 1 :
 		player['equip'] = []
-	player['equip']= dict(item)
+	player['equip'] = dict(item)
 
 
