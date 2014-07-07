@@ -6,7 +6,7 @@ items = (
 	{"name" : "un Coeur" , "rate" : 10 , "type" : 0 , "Modifier" : 1 , "liste" : "un Coeur------------+1 " },
 	{"name" : "une Galette Saucisse" , "rate" : 9 , "type" : 0 , "Modifier" : 2 , "liste" : "une Galette Saucisse+2 "},
 	{"name" : "des Abats" , "rate" : 10 , "type" : 0 , "Modifier" : 1 , "liste" : "des Abats-----------+1 "},
-	{"name" : "des Jelly Babies" , "rate" : 7 , "type" : 0 , "Modifier" : 4 , "liste" : "des Jelly Babies------+4 "},
+	{"name" : "des Jelly Babies" , "rate" : 7 , "type" : 0 , "Modifier" : 4 , "liste" : "des Jelly Babie-----+4 "},
 	{"name" : "une Fleur de Feu" , "rate" : 7 , "type" : 1 , "Modifier" : 1 , "liste" : "une Fleur de Feu----+1 "},
 	{"name" : "un Arc" , "rate" : 7 , "type" : 1 , "Modifier" : 1 , "liste" : "un Arc--------------+1 "},
 	{"name" : "une Arbalette" , "rate" : 5 , "type" : 1 , "Modifier" : 3 , "liste" : "une Arbalette-------+3 "},
@@ -18,6 +18,7 @@ items = (
 	{"name" : "une Claymore" , "rate" : 5 , "type" : 1 , "Modifier" : 3 , "liste" : "une Claymore--------+3 "},
 	{"name" : "un Katana" , "rate" : 6 , "type" : 1 , "Modifier" : 2 , "liste" : "un Katana-----------+2 "},
 	{"name" : "un Superbonbon" , "rate" : 6 , "type" : 2 , "Modifier" : 1 , "liste" : "un Superbonbon------+1 "},
+	{"name" : "un Jambon" , "rate" : 1 , "type" : 2 , "Modifier" : 2 , "liste" : "un Jambon-----------+2 "},
 	{"name" : "un Tromblon" , "rate" : 6 , "type" : 1 , "Modifier" : 2 , "liste" : "un Tromblon---------+2 "} )
 
 def checkList(): # Verifie que tous les elements de la liste sont bien parametres
