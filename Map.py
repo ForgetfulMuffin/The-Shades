@@ -216,12 +216,12 @@ def getAltDescript(position): # Ajoute quelques informations a la description de
         descript += " ~~~~~~~~~~~~~~~~~~~~~~~~~ Au sol, vous voyez "
         for i in range (len(list)):
             descript += list[i]["name"]
-        if len(list) - i ==1:
-            descript += "."
-        elif len(list) - i == 2:
-            descript += " et "
-        else:
-            descript += ", "
+            if len(list) - i ==1:
+                descript += "."
+            elif len(list) - i == 2:
+                descript += " et "
+            else:
+                descript += ", "
     return descript
 
 def isItem(position): # Renvoie le nombre d'objets dans la zone.
