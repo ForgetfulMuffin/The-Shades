@@ -2,74 +2,59 @@
 The-Shades
 ==========
 
-The Shades est un projet étudiant librement inspiré par Zork, un grand nom du jeu video textuel, et par le quartier mal famé
-des "Ombres" de la ville fictive d'Ankh Morpork, issue de l'Univers du Disque-Monde de Terry Pratchett.
-Les objets et créatures que vous trouverez dans "The-Shades" sont tirés de divers sources d'inspiration comme vous pourrez le voir.
+    The-Shades is a project freely inspired by Zork, a great name in text based video games, and by the Shades district 
+in the fictionnal city of Ankh-Morprk, from the Discworld universe by Sir Terry Pratchett.
+
+    Items and creatures, as you will see, come from multiple sources ranging from classic games to more recent ones.
 
 ============
 Instructions
 ============
 
-Pour le lancer, placez vous dans le répertoire du jeu et entrez la commande suivante dans votre terminal:
+To launch the game game, `cd` to the games location and type the following command in :
 
-`python The-Shades.py`
+`./The-Shades.py`
 
-Pour vous déplacer, les touches Z,Q,S et D correspondent respectivement aux direction Nord, Ouest, Sud et Est.
-Vous pouvez avoir une description plus précise en appuyant sur la touche O.
-Vous pouvez ramasser un objet en appuyant sur la touche R.
-Vous pouvez jeter un objet en appuyane
-Vous pouvez utiliser un objet en appuyant sur la touche E.
-    Si cet objet est une arme, elle sera équipée et votre force sera augmentée.
-    Si cet objet est un consommable, votre vie sera augmentée.
+To move around, the W,A,S and D keys respectivly correspond to the directions North, West, South and EAST.
+You can obtain a more precise description by pressing O.
+You can pick up an intem by pressing P.
+You can throw an item away by pressing T.
+You can use an item by pressing E.
+    If that item is a weapon, it will be equipped and your skill will increase.
+    If this item is consumable, either your health will increase or your level will.
 
-Dans l'éventualité d'un combat, vous pouvez toujours tenter de fuir en vous déplaçant 
-mais vous n'avez qu'une faible chance de réussir.
-Vous pouvez vous battre en appuyant sur la touche A.
+In the eventuality of a fight, you may try to flee by moving 
+but you only have a small chance of succeedin each time.
+You can fight by pressing F.
 
-L'objectif du jeu est de survivre suffisement longtemps pour quitter le labyrinthe.
-Vous pouvez quitter le jeu grâce à la touche Esc ou Echap.
+The objective of the game is to survive long enough to exit the labyrinth.
+You can quit the game at any time by pressing the escape key (or ESC).
 
 =========
 CHANGELOG
 =========
 
- VERSION 1.1 : What? The-Shades is evolving!
-    
-    ============
-    NEW FEATURES
-    ============
-    
-    - Difficulty settings : decide what size a grid you want to play in!
-    
-    - EXP & Levels : You now win EXP Points when you win a fight! You win an extra 3 max health points, 1 skill point and a health refill!
-                     The monsters you encounter are stronger when your level is higher (You won't get stuck against a troll at level 1)
-                     The stronger the monster, the more EXP you win! (Duh!)
-    
-    - Exploration counter : When you move from an area to another, remember to check the "visited" counter in the hud, you never know if you
-                            already been here...
-    
-    ========
-    NEW ITEM
-    ========
-    
-    - The Superbonbon (french for pokemon's "Rare Candy" : Leveling up made easy!
-    
-    ===================
-    OTHER EDITS & FIXES
-    ===================
-    
-    - Item selection fix : Typing an unassigned number doesn't make the game crash anymore.
-    
-    - Max health : You can't have more HP than your initial throw until you level up.
-    
-    ==========
-    KNOWN BUGS
-    ==========
-    
-    - Arrow keys : Just leave them alone.
-    
-    - Difficulty choice : Don't type any text in, it isn't safe yet.
+[The-Shades][V 2.0] "Losing is fun"
 
+  [FRANÇAIS]
+    [MAJEURE]
+    - Traduction complete en anglais.
+    - Ajout d'un système de niveau.
+    [MINEURE]
+    - Ajout de nouveaux monstres.
+    - Ajout de nouveaux objets.
+    - Ajout de couleurs.  
+    - Ajout de codes de triche.
+
+  [ENGLISH]
+    [MAJOR]
+    - Complete English translation.
+    - Added leveling system.
+    [MINOR]
+    - Added new monsters.
+    - Added new items.
+    - Added colors.
+    - Added cheat codes.
 
 ======
 Divers

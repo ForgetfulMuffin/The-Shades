@@ -29,6 +29,6 @@ def create (file1,file2,file3,file4,file5): # Defini les fonds d'ecran. file1 : 
 
 def show(bg,index): # Affiche un fond d'ecran
 	os.system("clear")
-	sys.stdout.write("\033[1;1H")
+	sys.stdout.write("\033[01;37m")
 
 	sys.stdout.write(bg[index])

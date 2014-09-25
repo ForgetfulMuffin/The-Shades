@@ -1,5 +1,4 @@
-
-import random, Monsters, Items
+import random, MonstersFR as Monsters, ItemsFR as Items
 map=[]
 path=[]
 visited=0
@@ -260,6 +259,9 @@ def getVisited(position): # Renvoie si la zone a deja ete visitee
 # MODIFICATEURS
 #==================================
 
+def doppel(health,power):
+	Monsters.doppel(health,power)
+
 def addItem(position,item): # ajoute un objet a une zone
     map[position[0]][position[1]]['items'].append(item)            
 
@@ -271,5 +273,7 @@ def editMonsterHealth(position, modifier): # Modifie la valeur de la vie du mons
     map[position[0]][position[1]]["monster"]["health"] += modifier
 
 def removeMonster(position): # Retire le monstre de la zone
-    map[position[0]][position[1]]["monster"]=[]
+	map[position[0]][position[1]]["monster"]=[]
 
+def addDoppel(position):
+	map[position[0]][position[1]]["monster"]=Monsters.getDoppel()

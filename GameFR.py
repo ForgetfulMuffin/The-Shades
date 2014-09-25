@@ -2,7 +2,7 @@
 #INITIALISATION
 #==================================================================================
 
-import Map
+import MapFR as Map
 import Player
 import Background
 import select, tty, termios, sys, time, random, os
@@ -16,7 +16,7 @@ levelUp = 100
 visited = 1
 def init(): # Defini les variables de depart
 	global descript, myBackground
-	myBackground=Background.create("background","victoire","defaite","menu","menu2")
+	myBackground=Background.create("backgroundFR","winFR","loseFR","menuFR","menu2FR")
 	Background.show(myBackground,"menu")
 	Player.setName()
 	Player.setMaxHealth()
@@ -25,6 +25,7 @@ def init(): # Defini les variables de depart
 	Map.generate(difficulty)
 	descript = descript()
 	tty.setcbreak(sys.stdin.fileno())
+	Map.doppel(Player.getMaxHealth(),Player.getPower())
 	return descript, difficulty
 
 def setDifficulty():
@@ -144,7 +145,28 @@ def getAction(): # Traite les interactions clavier
 		elif key == '\x1b' :
 			exitGame()
 			time.sleep(0.2)	
-
+		elif key == 'c' :
+			termios.tcsetattr(sys.stdin, termios.TCSADRAIN, defaultTerminal)
+			cheat = raw_input("Enter cheat code : ")                                                              
+			tty.setcbreak(sys.stdin.fileno())
+                        if cheat == "doppel":                                                                                 
+                                Map.addDoppel(Player.getPosition())                                                           
+                                return "Il y a desormais un  Doppelganger devant vous!"
+                        elif cheat == "pepperonipizza":
+                                Player.addItem({"name" : "une Pizza" , "rate" : 9 , "type" : 0 , "Modifier" : 100 , "liste" : "Une Pizza Pepperoni -- "})
+                                return "Une Pizza Pepperoni se materialise dons votre inventaire!"
+                        elif cheat == "konami":
+                                while Player.getLevel()<10:
+                                        Player.setXp(levelUp)
+                                        checkXp()
+				if Player.isItem() <= 5:
+                                        Player.addItem({"name" : "le NES Zapper" , "rate" : 0 , "type" : 1 , "Modifier" : 10 , "liste" : "Le NES Zapper ---+10 "})
+					return "KONAMI vous monte au niveau maximal et vous donne un NES Zapper!"
+				else :
+					return "KONAMI vous monte au niveau maximal!"
+					
+                        else:
+                                return "Ne trichez pas si vous ne savez pas comment le faire !"
 #==================================================================================
 #ACTIONS
 #==================================================================================
@@ -265,7 +287,10 @@ def attack(): #Gestion du combat
 			Map.editMonsterHealth(Player.getPosition(),-2)
 			descript += "Vous blessez votre adversaire."
 		else:
-			Player.editHealth(-2)
+			if random.randint(1,6) == 6:
+				Player.editHealth(-2)
+			else:
+				Player.editHealth(-1)
 			descript += "Votre adversaire vous blesse. "
 		if Map.getMonsterHealth(Player.getPosition()) <= 0:
 			descript += "CE coup lui est fatal. Son corps tombe tel un pantin desarticule et, quelques secondes plus tard, il se desintegre." 
@@ -277,13 +302,16 @@ def attack(): #Gestion du combat
 def checkXp(): # Verifie si le joueur change de niveau)
 	global levelUp
 	if Player.getXp() >= levelUp :
-		Player.editLevel(1)
-		Player.editMaxHealth(3)
-		Player.editPower(1)
+		if Player.getLevel() < 10:
+			Player.editLevel(1)
+			Player.editMaxHealth(2)
+			if Player.getLevel()%2 == 0:
+				Player.editPower(1)
+			Player.setXp(Player.getXp()-levelUp)
+			levelUp += Player.getLevel()*100
+			Map.doppel(Player.getMaxHealth(),Player.getPower()+Player.getEquipModifier())	
 		Player.setHealth(Player.getMaxHealth())
-		Player.setXp(Player.getXp()-levelUp)
-		levelUp += Player.getLevel()*100
-	return
+			
 
 #==================================================================================
 #AFFICHAGE
@@ -304,17 +332,32 @@ def display(description,difficulty): # Affiche la description correspondant a la
 			line +=1
 	for line in range (len(descript)):
 		sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (6+line, 10, descript[line]))
+        sys.stdout.write("\033[1;34m") 
 	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (22,67,Player.getName()))
 	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (22,98,str(Player.getLevel())))
 	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (23,71,str(Player.getMaxHealth())))
-	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (23,83,str(Player.getHealth())))
 	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (23,97,str(Player.getPower()+Player.getEquipModifier())))
-	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (24,97,str(difficulty*difficulty)))
-	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (24,76,str(Player.getTime())))
-	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (25,96,str(visited)))
-	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (25,76,str(difficulty*difficulty*14)))
-	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (26,74,str(Player.getXp())))
 	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (27,77,str(levelUp)))
+	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (25,76,str(difficulty*difficulty*14)))
+	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (24,97,str(difficulty*difficulty)))
+        if Player.getXp() >= levelUp*80/100:
+                sys.stdout.write("\033[1;32m")
+	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (26,74,str(Player.getXp())))
+	if Player.getHealth() > Player.getMaxHealth()*20/100:
+                sys.stdout.write("\033[1;32m")
+        else:   
+                sys.stdout.write("\033[1;31m")
+	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (23,83,str(Player.getHealth())))
+	if Player.getTime() < difficulty*difficulty*14*80/100:
+                sys.stdout.write("\033[1;32m")
+        else:   
+                sys.stdout.write("\033[1;31m")
+	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (24,76,str(Player.getTime())))
+	if visited < difficulty*difficulty*80/100:
+                sys.stdout.write("\033[1;32m")
+        else:   
+                sys.stdout.write("\033[1;31m")
+	sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (25,96,str(visited)))
 	sys.stdout.flush()
 
 #==================================================================================
@@ -336,6 +379,7 @@ def checkTime(difficulty): # Verifie si le joueur est considere comme perdu a ja
 def exitGame(): # Quitte le jeu en remettant les parametres par defaut
 	global defaultTerminal
 	time.sleep(5)
+        sys.stdout.write("\033[0;37m")
 	os.system("clear")
 	termios.tcsetattr(sys.stdin, termios.TCSADRAIN, defaultTerminal)
 	sys.exit()

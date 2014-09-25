@@ -4,11 +4,21 @@
 #INITIALISATION
 #==============
 
-import Game
 import termios, sys
 description = ''
 difficulty = 6
+Game = ""
 def init(): # Mets en place les elements du jeu.
+    global Game
+    print "Choose your language / Choisissez votre langue"
+    print "[1] Francais" 
+    print "[2] English"
+    language = input()
+
+    if language == 1:
+        import GameFR as Game
+    else:
+        import GameEN as Game
     global description, difficulty
     description, difficulty = Game.init()
 
