@@ -300,7 +300,7 @@ def attack(): #Gestion du combat
 	return descript
 
 def checkXp(): # Verifie si le joueur change de niveau)
-	global levelUp
+	global levelUp, levelPrev
 	if Player.getXp() >= levelUp :
 		if Player.getLevel() < 10:
 			Player.editLevel(1)
@@ -308,7 +308,9 @@ def checkXp(): # Verifie si le joueur change de niveau)
 			if Player.getLevel()%2 == 0:
 				Player.editPower(1)
 			Player.setXp(Player.getXp()-levelUp)
-			levelUp += Player.getLevel()*100
+			temp = levelUp
+			levelUp += Player.getLevel()*100-levelPrev
+			levelPrev = temp
 			Map.doppel(Player.getMaxHealth(),Player.getPower()+Player.getEquipModifier())	
 		Player.setHealth(Player.getMaxHealth())
 			
