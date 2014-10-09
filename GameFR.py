@@ -12,6 +12,7 @@ pick = 0
 throw = 0
 use = 0
 key = 0
+levelPrev = 0
 levelUp = 100
 visited = 1
 def init(): # Defini les variables de depart
