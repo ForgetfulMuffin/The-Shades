@@ -31,7 +31,7 @@ The objective of the game is to survive long enough to exit the labyrinth.
 You can quit the game at any time by pressing the escape key (or ESC).
 
 =========
-CHANGELOG
+Changelog
 =========
 
 [The-Shades][V 2.0] "Losing is fun"
@@ -62,8 +62,10 @@ Divers
 
 Pour des informations sur le projet vous pouvez nous contacter à:
 
-forgetfulmuffin [at] gmail [dot] com
+contact@forgetfulmuffin.me
 
+valentin.pearce@forgetfulmuffin.me
+pierre.mahieux@forgetfulmuffin.me
 
 Pour suivre en détail l'evolution du projet, vous pouvez vous rendre sur :
 
