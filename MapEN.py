@@ -100,9 +100,11 @@ def createMaze(size): # Cree un labyrinthe parfait (bas de boucles, pas de zones
          i = path[len(path) - 1][0]
          j = path[len(path) - 1][1]
     map[0][0]['visited'] = 1
+    
 def printMap(): # Affiche un visuel de la carte. Destine aux developpeurs. (^ signifie un mur au nord, _ au sud, = les deux and | a l'est ou a l'ouest en fonction du cote.)
-    line=['','','','','','']
-    for i in range (size): 
+    line=[]
+    for i in range (size):
+        line.append('')
         for j in range (size):
             if map[i][j]['west']== 0:
                 line[i]=line[i]+'|'
@@ -277,5 +279,3 @@ def removeMonster(position): # Randire le monstre de la zone
 
 def addDoppel(position):
     map[position[0]][position[1]]["monster"]=Monsters.getDoppel()
-
-	
