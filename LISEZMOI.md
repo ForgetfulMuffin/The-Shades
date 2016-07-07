@@ -1,6 +1,7 @@
 ==========
 The-Shades
 ==========
+[![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](LICENCE)
 
 The Shades est un projet librement inspiré par Zork, un grand nom du jeu video textuel, et par le quartier mal famé
 des "Ombres" de la ville fictive d'Ankh Morpork, issue de l'Univers du Disque-Monde de Terry Pratchett.
