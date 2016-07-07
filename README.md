@@ -1,6 +1,8 @@
 ==========
 The-Shades
 ==========
+[![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](LICENSE)
+
 
     The-Shades is a project freely inspired by Zork, a great name in text based video games, and by the Shades district 
 in the fictionnal city of Ankh-Morprk, from the Discworld universe by Sir Terry Pratchett.
