@@ -64,10 +64,10 @@ Divers
 
 Pour des informations sur le projet vous pouvez nous contacter à:
 
-contact@forgetfulmuffin.me
+contact [at] forgetfulmuffin.fr
 
-valentin.pearce@forgetfulmuffin.me
-pierre.mahieux@forgetfulmuffin.me
+valentin.pearce [at] forgetfulmuffin.fr
+pierre.mahieux [at] forgetfulmuffin.fr
 
 Pour suivre en détail l'evolution du projet, vous pouvez vous rendre sur :
 
